@@ -1,6 +1,3 @@
-import React  from 'react';
-import axios from 'axios';
-
 class UpdateForm extends React.Component {
     constructor(props) {
         super(props);
@@ -33,7 +30,7 @@ handleChange = e =>
     EditMovie = e => {
         e.preventDefault();
         axios
-          .put(`http://localhost:5000/api/movies/${this.props.match.params.id}`, this.state.editMovie)
+          .post(`http://localhost:5000/api/movies/${this.props.match.params.id}`, this.state.editMovie)
           .then(res => {
                console.log(res)
                this.props.history.push('/')

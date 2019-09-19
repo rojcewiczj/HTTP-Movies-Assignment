@@ -3,12 +3,14 @@ import axios from "axios";
 import MovieCard from "./MovieCard";
 import { Link } from 'react-router-dom';
 import DeleteForm from './DeleteForm';
+
 export default class Movie extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       movie: null
-    };
+    };console.log(this.state.movie)
   }
 
   componentDidMount() {
@@ -45,8 +47,12 @@ export default class Movie extends React.Component {
           Save
         </div>
         <Link to={`/UpdateForm/${this.state.movie.id}`} > Update this Movie</Link>
+         
         <DeleteForm movie={this.state.movie} />
       </div>
     );
-  }
+    
+  } 
+ 
 }
+
