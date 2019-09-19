@@ -31,15 +31,12 @@ handleChange = e =>
    
     EditMovie = e => {
         e.preventDefault();
-        axiosWithAuth()
-          .put(`/friends/${this.state.editFriend.id}`, this.state.editFriend)
+        axios
+          .put(`http://localhost:5000/api/movies${this.state.editMovie.id}`, this.state.editMovie)
           .then(res => {
-               console.log(res);
-               const inputs = document.querySelectorAll('input');
-               inputs.forEach(i =>{
-                   i.value = ' '
+               console.log(res)
                })
-          })
+         
           .catch(err => console.log(err));
       };
 
@@ -49,32 +46,36 @@ handleChange = e =>
              {
         return (
           <div>
-            <form onSubmit={this.EditFriend}>
-            <input
-                type="name"
-                name="id"
-                value={this.state.editFriend.id}
+            <form onSubmit={this.EditMovie}>
+              <input
+                type="title"
+                name="title"
+                placeholder="title"
+                value={this.state.editMovie.title}
                 onChange={this.handleChange}
               />
               <input
-                type="name"
-                name="name"
-                value={this.state.editFriend.name}
+                type="director"
+                name="director"
+                placeholder="director"
+                value={this.state.editMovie.director}
                 onChange={this.handleChange}
               />
               <input
-                type="age"
-                name="age"
-                value={this.state.editFriend.age}
+                type="metascore"
+                name="metascore"
+                placeholder="metascor"
+                value={this.state.editMovie.metascore}
                 onChange={this.handleChange}
               />
-              <input
-                type="email"
-                name="email"
-                value={this.state.editFriend.email}
+                 <input
+                type="stars"
+                name="stars"
+                placeholder="stars"
+                value={this.state.editMovie.metascore}
                 onChange={this.handleChange}
               />
-              <button>Edit Friend!</button>
+              <button>Update Movie!</button>
             </form>
           </div>
         );
