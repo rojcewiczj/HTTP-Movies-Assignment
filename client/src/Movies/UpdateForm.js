@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React  from 'react';
 import axios from 'axios';
 
-class UpdateMovie extends React.Component {
+class UpdateForm extends React.Component {
     constructor(props) {
         super(props);
-    state = {
+        console.log(props.match.params.id)
+    this.state = {
       editMovie: {
-         id: this.props.id, 
+         id: this.props.match.params.id, 
          title: '',
          director: '',
-         metascore: [],
-         stars: [],
+         metascore: '',
+         stars: [''],
 
 
       }
     }
 }
     
-    
+
       
 handleChange = e => 
     this.setState({
@@ -32,7 +33,7 @@ handleChange = e =>
     EditMovie = e => {
         e.preventDefault();
         axios
-          .put(`http://localhost:5000/api/movies${this.state.editMovie.id}`, this.state.editMovie)
+          .put(`http://localhost:5000/api/movies/${this.props.match.params.id}`, this.state.editMovie)
           .then(res => {
                console.log(res)
                })
@@ -64,7 +65,7 @@ handleChange = e =>
               <input
                 type="metascore"
                 name="metascore"
-                placeholder="metascor"
+                placeholder="metascore"
                 value={this.state.editMovie.metascore}
                 onChange={this.handleChange}
               />
@@ -72,7 +73,7 @@ handleChange = e =>
                 type="stars"
                 name="stars"
                 placeholder="stars"
-                value={this.state.editMovie.metascore}
+                value={this.state.editMovie.stars}
                 onChange={this.handleChange}
               />
               <button>Update Movie!</button>
@@ -83,7 +84,7 @@ handleChange = e =>
 
   };
 
-  export default  UpdateMovie;
+  export default  UpdateForm;
 
 
   
