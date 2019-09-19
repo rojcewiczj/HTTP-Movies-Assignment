@@ -36,6 +36,7 @@ handleChange = e =>
           .put(`http://localhost:5000/api/movies/${this.props.match.params.id}`, this.state.editMovie)
           .then(res => {
                console.log(res)
+               this.props.history.push('/')
                })
          
           .catch(err => console.log(err));

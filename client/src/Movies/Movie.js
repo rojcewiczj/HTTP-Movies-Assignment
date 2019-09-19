@@ -45,7 +45,7 @@ export default class Movie extends React.Component {
           Save
         </div>
         <Link to={`/UpdateForm/${this.state.movie.id}`} > Update this Movie</Link>
-        <DeleteForm props={this.state.movie} />
+        <DeleteForm movie={this.state.movie} />
       </div>
     );
   }

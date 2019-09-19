@@ -5,9 +5,10 @@ class DeleteForm extends React.Component {
     constructor(props) {
         super(props);
         console.log(props)
+       
     this.state = {
       editMovie: {
-         id: props.id, 
+         id: props.movie.id, 
       }
     }
 }
@@ -27,9 +28,10 @@ handleChange = e =>
     EditMovie = e => {
         e.preventDefault();
         axios
-          .delete(`http://localhost:5000/api/movies/${this.props.id}`, this.state.editMovie)
+          .delete(`http://localhost:5000/api/movies/${this.props.movie.id}`, this.state.editMovie)
           .then(res => {
                console.log(res)
+               this.props.history.push('/');
                })
          
           .catch(err => console.log(err));
