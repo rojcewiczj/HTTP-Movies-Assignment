@@ -31,7 +31,7 @@ handleChange = e =>
           .delete(`http://localhost:5000/api/movies/${this.props.movie.id}`, this.state.editMovie)
           .then(res => {
                console.log(res)
-               this.props.history.push('/');
+               window.location="/";
                })
          
           .catch(err => console.log(err));

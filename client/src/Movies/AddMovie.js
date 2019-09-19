@@ -1,10 +1,10 @@
-class UpdateForm extends React.Component {
+class AddForm extends React.Component {
     constructor(props) {
         super(props);
         console.log(props)
     this.state = {
       editMovie: {
-         id: this.props.match.params.id, 
+         id: [], 
          title: '',
          director: '',
          metascore: '',
@@ -39,6 +39,11 @@ handleChange = e =>
           .catch(err => console.log(err));
       };
 
+     makeArray = (e) => {
+         this.state.editMovie,
+         this.state.stars.push(e.target.value);
+            
+      }
 
 
     render() 

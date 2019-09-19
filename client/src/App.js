@@ -15,6 +15,8 @@ const App = () => {
 
   
 
+  
+
   return (
     <>
       <SavedList list={savedList} />
@@ -30,7 +32,7 @@ const App = () => {
       <Route 
         exact path='/UpdateForm/:id'
         component={UpdateForm}
-        render={props => {return <Movie {...props} movie={Movie}/>  }}
+        render={props => {return <Movie {...props} />  }}
         />
         <Route 
         exact path='/DeleteForm/:id'
