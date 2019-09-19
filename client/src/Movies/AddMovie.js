@@ -1,20 +1,24 @@
-class AddForm extends React.Component {
+import React  from 'react';
+import axios from 'axios';
+
+
+class AddMovie extends React.Component {
     constructor(props) {
         super(props);
         console.log(props)
     this.state = {
       editMovie: {
-         id: [], 
+
          title: '',
          director: '',
          metascore: '',
-         stars: [''],
-
+         stars: [],
 
       }
     }
 }
     
+
 
       
 handleChange = e => 
@@ -30,21 +34,19 @@ handleChange = e =>
     EditMovie = e => {
         e.preventDefault();
         axios
-          .post(`http://localhost:5000/api/movies/${this.props.match.params.id}`, this.state.editMovie)
+          .post(`http://localhost:5000/api/movies/`, this.state.editMovie)
           .then(res => {
                console.log(res)
+             
                this.props.history.push('/')
                })
          
           .catch(err => console.log(err));
       };
 
-     makeArray = (e) => {
-         this.state.editMovie,
-         this.state.stars.push(e.target.value);
-            
-      }
-
+createArray = (e) => {
+    this.state.editMovie.stars.push(this.state.editMovie.holder);
+}
 
     render() 
              {
@@ -54,7 +56,7 @@ handleChange = e =>
               <input
                 type="title"
                 name="title"
-                placeholder={this.props.match.params.id}
+                placeholder="title"
                 value={this.state.editMovie.title}
                 onChange={this.handleChange}
               />
@@ -72,14 +74,14 @@ handleChange = e =>
                 value={this.state.editMovie.metascore}
                 onChange={this.handleChange}
               />
-                 <input
+               <input
                 type="stars"
                 name="stars"
                 placeholder="stars"
                 value={this.state.editMovie.stars}
                 onChange={this.handleChange}
               />
-              <button>Update Movie!</button>
+              <button>Add Movie!</button>
             </form>
           </div>
         );
@@ -87,7 +89,7 @@ handleChange = e =>
 
   };
 
-  export default  UpdateForm;
+  export default  AddMovie;
 
 
   
