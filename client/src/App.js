@@ -25,6 +25,7 @@ const App = () => {
       />
       <Route 
         exact path='update-movie/:id'
+        render={props => {<Movie {...props} />}}
         component={UpdateForm} />
       
     </>
