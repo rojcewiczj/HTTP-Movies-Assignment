@@ -10,6 +10,7 @@ const App = () => {
   const addToSavedList = movie => {
     setSavedList([...savedList, movie]);
   };
+  
 
   return (
     <>
@@ -20,7 +21,12 @@ const App = () => {
         render={props => {
           return <Movie {...props} addToSavedList={addToSavedList} />;
         }}
+        
       />
+      <Route 
+        exact path='update-movie/:id'
+        component={UpdateForm} />
+      
     </>
   );
 };

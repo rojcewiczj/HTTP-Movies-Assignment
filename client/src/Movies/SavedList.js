@@ -15,8 +15,9 @@ export default class SavedList extends Component {
               to={`/movies/${movie.id}`}
               key={movie.id}
               activeClassName="saved-active"
-              
+
             >
+              
               <span className="saved-movie">{movie.title}</span>
             </NavLink>
           );
