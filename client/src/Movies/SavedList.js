@@ -15,13 +15,17 @@ export default class SavedList extends Component {
               to={`/movies/${movie.id}`}
               key={movie.id}
               activeClassName="saved-active"
+
             >
+              
               <span className="saved-movie">{movie.title}</span>
             </NavLink>
           );
         })}
         <div className="home-button">
           <Link to="/">Home</Link>
+         
+          <Link to="/AddMovie"><button>Add A Movie!</button></Link>
         </div>
       </div>
     );
